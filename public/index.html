@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="output.css" />
+    <title>Rest countries API</title>
+  </head>
+  <body>
+    <section
+      class="py-6 lg:px-16 px-8 bg-[#ffffff] dark:bg-[#2b3945] drop-shadow-lg sticky top-0 z-50"
+    >
+      <nav class="flex justify-between items-center">
+        <h1
+          class="font-bold lg:text-2xl text-lg text-[#111517] dark:text-[#fff]"
+        >
+          Where in the world?
+        </h1>
+        <button
+          id="darkMode"
+          href="#"
+          class="font-semibold cursor-pointer text-sm text-[#111517] dark:text-[#fff]"
+        >
+          <i id="moonIcon" class="fa-regular fa-moon mr-1 dark:text-[#fff]"></i
+          ><span id="websiteMode">Dark Mode</span>
+        </button>
+      </nav>
+    </section>
+    <section
+      id="section"
+      class="flex flex-col bg-[#fafafa] dark:bg-[#202c37] pt-10 lg:px-16 px-8"
+    >
+      <div class="flex lg:flex-row flex-col lg:justify-between mb-16">
+        <div
+          class="flex items-center px-6 py-4 lg:w-96 bg-white dark:bg-[#2b3945] rounded-sm shadow-sm mb-12 lg:mb-0"
+        >
+          <i class="fas fa-search text-gray-400 dark:text-[#fafafa] mr-6"></i>
+          <input
+            id="search"
+            type="text"
+            placeholder="Search for a country..."
+            class="outline-none flex-1 dark:text-white dark:bg-[#2b3945]"
+          />
+        </div>
+        <div class="relative">
+          <button
+            id="dropdownButton"
+            class="flex items-center cursor-pointer bg-[#fff] active:bg-gray-100 dark:bg-[#2b3945] dark:hover:bg-gray-700 dark:active:bg-gray-600 p-4 w-48 rounded-sm shadow-sm"
+          >
+            <p
+              class="font-normal font-sans mr-6 text-[#111517] dark:text-white"
+            >
+              Filter by Region
+            </p>
+            <i class="fas fa-angle-down dark:text-white"></i>
+          </button>
+          <div
+            id="dropdownMenu"
+            class="absolute z-10 mt-1 w-48 bg-white dark:bg-[#2b3945] rounded-sm shadow-lg"
+            style="display: none"
+          >
+          <a
+              href="#"
+              class="block py-2 px-4 text-gray-800 dark:text-white hover:bg-gray-100 active:bg-gray-50 dark:hover:bg-gray-900 dark:active:bg-gray-800"
+              >All</a>
+            <a
+              href="#"
+              class="block py-2 px-4 text-gray-800 dark:text-white hover:bg-gray-100 active:bg-gray-50 dark:hover:bg-gray-900 dark:active:bg-gray-800"
+              >Africa</a>
+            <a
+              href="#"
+              class="block py-2 px-4 text-gray-800 dark:text-white hover:bg-gray-100 active:bg-gray-50 dark:hover:bg-gray-900 dark:active:bg-gray-800"
+              >America</a
+            >
+            <a
+              href="#"
+              class="block py-2 px-4 text-gray-800 dark:text-white hover:bg-gray-100 active:bg-gray-50 dark:hover:bg-gray-900 dark:active:bg-gray-800"
+              >Asia</a
+            >
+            <a
+              href="#"
+              class="block py-2 px-4 text-gray-800 dark:text-white hover:bg-gray-100 active:bg-gray-50 dark:hover:bg-gray-900 dark:active:bg-gray-800"
+              >Europe</a
+            >
+            <a
+              href="#"
+              class="block py-2 px-4 text-gray-800 dark:text-white hover:bg-gray-100 active:bg-gray-50 dark:hover:bg-gray-900 dark:active:bg-gray-800"
+              >Oceania</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div id="availableCountryMessage" class="flex justify-center mt-24 hidden">
+        <p class="text-gray-900 dark:text-[#fafafa] text-2xl">No country were found...</p>
+      </div>
+
+      <div
+        id="countries"
+        class="flex flex-wrap gap-10 sm:gap-8 md:gap-10 lg:gap-12 min-h-screen"
+      ></div>
+
+      
+      <button
+        id="scrollToTop"
+        class="fixed bottom-8 right-8 border bg-gray-200 hover:bg-gray-300 focus:bg-gray-200 transition duration-300 ease-in-out rounded-full w-10 h-10 hidden"
+      >
+        <i class="fa-solid fa-arrow-up-long"></i>
+      </button>
+
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<!--npx tailwindcss -i ./src/input.css -o ./public/output.css --watch-->
